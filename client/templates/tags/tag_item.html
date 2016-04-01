@@ -1,0 +1,12 @@
+<template name="tagItem">
+  <div class="tag">
+    <div class="tag-content">
+      <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
+      <p>
+        {{#if ownPost}}<a href="{{pathFor 'tagEdit'}}">แก้ไข</a>{{/if}}
+      </p>
+    </div>
+    <a href="{{pathFor 'tagPage'}}" class="discuss btn btn-info">ดูข้อมูล</a>
+    <a href="{{pathFor 'tagEdit'}}" class="discuss btn btn-warning">แก้ไข</a>
+  </div>
+</template>

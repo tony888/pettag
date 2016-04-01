@@ -1,0 +1,88 @@
+<template name="petSubmit">
+  <form class="main form page">
+
+    <div class="form-group {{errorClass 'tagNo'}}">
+      <label class="control-label" for="tagNo">หมายเลข Tag</label>
+      <div class="controls">
+          <input name="tagNo" id="tagNo" type="text" value="" placeholder="ระบุหมายเลข Tag" class="form-control"/>
+          <span class="help-block">{{errorMessage 'tagNo'}}</span>
+      </div>
+    </div>
+
+
+    <div class="form-group {{errorClass 'typeId'}}">
+      <label class="control-label" for="typeId">ประเภทสัตว์</label>
+      <div class="controls">
+        <select name="typeId" id="typeId" class="form-control">
+          <option value="" selected="selected">ระบุประเภทสัตว์</option>
+          <option value="Dog">สุนัข</option>
+          <option value="Cat">แมว</option>
+        </select>
+        <span class="help-block">{{errorMessage 'typeId'}}</span>
+      </div>
+    </div>
+
+
+    <div class="form-group {{errorClass 'name'}}">
+      <label class="control-label" for="name">ชื่อสัตว์</label>
+      <div class="controls">
+          <input name="name" id="name" type="text" value="" placeholder="ระบุชื่อสัตว์" class="form-control"/>
+          <span class="help-block">{{errorMessage 'name'}}</span>
+      </div>
+    </div>
+
+    <div class="form-group {{errorClass 'dob'}}">
+      <label class="control-label" for="dob">วันเกิด</label>
+      <div class="controls">
+          <input name="dob" id="dob" type="date" value="" placeholder="ระบุวันเกิด dd-mm-yyyy" class="form-control"/>
+          <span class="help-block">{{errorMessage 'dob'}}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="desc">รายละเอียด</label>
+      <div class="controls">
+          <textarea rows="3" name="desc" id="desc" class="form-control">
+          </textarea>
+
+      </div>
+    </div>
+
+
+    <div class="form-group {{errorClass 'gender'}}">
+      <label class="control-label" for="gender">เพศ</label>
+      <div class="controls">
+          <select name="gender" id="gender" class="form-control">
+            <option value="" selected="selected">ระบุเลือกเพศ</option>
+            <option value="M">ชาย</option>
+            <option value="F">หญิง</option>
+          </select>
+
+          <span class="help-block">{{errorMessage 'gender'}}</span>
+      </div>
+    </div>
+
+    <div class="form-group {{errorClass 'breed'}}">
+      <label class="control-label" for="breed">สายพันธุ์</label>
+      <div class="controls">
+          <input name="breed" id="breed" type="text" value="" placeholder="ระบุสายพันธุ์" class="form-control"/>
+          <span class="help-block">{{errorMessage 'breed'}}</span>
+      </div>
+    </div>
+
+    <div class="form-group {{errorClass 'color'}}">
+      <label class="control-label" for="color">สี</label>
+      <div class="controls">
+        <input name="color" id="color" type="text" value="" placeholder="ระบุสี" class="form-control"/>
+
+        <span class="help-block">{{errorMessage 'color'}}</span>
+      </div>
+    </div>
+
+  {{>fileSubmit}}
+
+
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </form>
+</template>

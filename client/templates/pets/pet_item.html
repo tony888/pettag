@@ -1,0 +1,32 @@
+<template name="petItem">
+  <li>
+    <h4>
+      <span class="name">ชื่อ:{{name}}</span>
+    </h4>
+
+  </li>
+
+  <p class="desc">ประเภท:{{typeId}}</p>
+  <p class="dob">วันเกิด:{{dob}}</p>
+  <p class="desc">รายละเอียด:{{desc}}</p>
+  <p class="gender">เพศ:{{gender}}</p>
+  <p class="desc">สายพันธ์ุ:{{breed}}</p>
+  <p class="desc">สี:{{color}}</p>
+  <p class="desc">tag no:{{tagNo}}</p>
+ <p class="desc">microship Id :{{microshipId}}</p>
+ <p class="desc">รายละเอียด :{{description}}</p>
+ <p class="desc">หมายเหตุ :{{remark}}</p>
+ <p class="desc"> ตำหนิ:{{physicalDesc}}</p>
+
+  <p class="desc">image :{{images.src}}</p>
+
+  <p class="desc">  {{> vaccineList}} </p>
+
+  <p class="desc">{{> petThumbnails}}</p>
+
+  <p class="desc">  {{> location}}</p>
+
+  <p class="desc">  {{> ownersList}}</p>
+
+  <p class="desc">  {{> filesList}}</p>
+</template>

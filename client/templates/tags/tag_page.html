@@ -1,0 +1,17 @@
+<template name="tagPage">
+  <div class="tag-page page">
+    <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
+    <ul class="pets">
+      {{#each pets}}
+        {{>petItem}}
+      {{/each}}
+    </ul>
+    <!--
+    {{#if currentUser}}
+      {{>commentSubmit}}
+    {{else}}
+      <p>Please log in to leave a comment.</p>
+    {{/if}}
+  -->
+  </div>
+</template>
