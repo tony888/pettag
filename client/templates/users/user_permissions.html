@@ -1,0 +1,71 @@
+<template name="userPermission">
+  <form class="form-horizontal">
+  <fieldset>
+
+  <!-- Form Name -->
+  <legend>ตั้งค่าเปิดเผยข้อมูลเป็นสาธารณะ</legend>
+
+
+    <div class="form-group ">
+
+      <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
+      <input id="sel_all"  type="checkbox" >
+      <!--  </div>-->
+      <div class="col-sm-2">
+        <label class="col-md-4 control-label" for="all">เลือกทั้งหมด</label>
+
+      </div>
+    </div>
+
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="name">ชื่อ-สกุล</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_name"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_name" name="userPermis" type="checkbox" value="name" checked>
+      <!--  </div>-->
+
+    </div>
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="microship">เบอร์โทรศัพท์</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_microship"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_tel" name="userPermis" type="checkbox" value="tel" checked>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="addr">ที่อยู่</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_breed"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_addr" name="userPermis" type="checkbox" value="addr"  checked>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+            <div class="col-sm-2">
+
+              <label class="col-md-2 control-label" for="emails">E-Mail</label>
+            </div>
+          <!--<div class="switch controls" id="toggle_typeId"  data-on-label="SHOW" data-off-label="OFF">-->
+              <input id="chk_email" name="userPermis" type="checkbox" value="email" checked >
+          <!--  </div>-->
+
+    </div>
+
+
+    <!--type="submit"-->
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </fieldset>
+  </form>
+
+</template>

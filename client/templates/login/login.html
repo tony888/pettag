@@ -1,22 +1,42 @@
-
 <template name="login">
+  <form class="form-horizontal">
+  <fieldset>
 
-    <div class="container">
-{{> loginButtons}}
-       <!--
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-    -->
+  <!-- Form Name -->
+  <legend >Login</legend>
+
+  <!-- Text input-->
+  <div class="form-group {{errorClass 'email'}}">
+    <label class="col-md-4 control-label" for="email">E-Mail</label>
+    <div class="col-md-4">
+    <input id="email" name="email" type="email" placeholder="E-Mail" class="form-control input-md" required="">
+    <span class="help-block">{{errorMessage 'email'}}</span>
     </div>
+  </div>
+  <!-- Password input-->
+  <div class="form-group {{errorClass 'password'}}">
+    <label class="col-md-4 control-label" for="password">รหัสผ่าน</label>
+    <div class="col-md-4">
+      <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="form-control input-md" required="">
+      <span class="help-block">{{errorMessage 'password'}}</span>
+    </div>
+  </div>
+
+
+
+
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="regis"></label>
+    <div class="col-md-4">
+      <input type="submit" value="Login" class="btn btn-primary"/>
+    <!--  <button id="regis" name="regis" class="btn btn-success">สมัครสมาชิก</button>-->
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+
+
+
 </template>

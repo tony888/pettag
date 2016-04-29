@@ -2,15 +2,14 @@
 
   <div class="row">
       <div class="col-md-12">
-        <div id="dropzone" class="dropzone">
-          <div class="well well-drop-zone">
-            Drop file(s) here to upload
-          </div>
-        </div>
+          <input type="text" value="" name="txtFileName" id="txtFileName" placeholder="กรอกชื่อเอกสาร" >
+          <input type="file" id ="fileupload" name = "fileupload">
+          <button type="button"  name="btnUpload" id="btnUpload">Upload file</button>
+
       </div>
     </div>
 
   {{#each files}}
-    {{> petThumbnails}}
+    {{> filesList}}
   {{/each}}
 </template>

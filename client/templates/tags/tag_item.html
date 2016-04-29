@@ -1,4 +1,5 @@
 <template name="tagItem">
+  {{isLost}}
   <div class="tag">
     <div class="tag-content">
       <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
@@ -6,7 +7,23 @@
         {{#if ownPost}}<a href="{{pathFor 'tagEdit'}}">แก้ไข</a>{{/if}}
       </p>
     </div>
-    <a href="{{pathFor 'tagPage'}}" class="discuss btn btn-info">ดูข้อมูล</a>
-    <a href="{{pathFor 'tagEdit'}}" class="discuss btn btn-warning">แก้ไข</a>
+    {{#if showMapPet}}
+      <a href="{{pathFor 'petSubmit'}}" class="discuss btn btn-success">เพิ่มข้อมูลสัตว์เลี้ยง</a>
+    {{else}}
+      <a href="{{pathFor 'tagPage'}}" class="discuss btn btn-success">ดูข้อมูล</a>
+
+      <a href="{{pathFor 'tagEdit'}}" class="discuss btn btn-warning">แก้ไข</a>
+    {{/if}}
+
+    {{#if showLostButton}}
+      <a href="{{pathFor 'tagLost'}}" class="discuss btn btn-info">แจ้งหาย</a>
+    {{/if}}
+    {{#if showFoundPet}}
+        <a href="{{pathFor 'tagActive'}}" class="discuss btn btn-info">พบสัตว์แล้ว</a>
+    {{/if}}
+    {{#if showTransferButton}}
+      <a href="{{pathFor 'tagTransfer'}}" class="discuss btn btn-default">โอน</a>
+    {{/if}}
+
   </div>
 </template>

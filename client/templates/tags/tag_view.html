@@ -1,0 +1,89 @@
+<template name="viewTag">
+  <div>
+      {{lat}}
+      {{lon}}
+
+      {{no}}
+
+
+      <!--{{#each}}
+        {{file_id}}
+
+        <img src={{src}} class="thumbnail" />
+      {{/each}}-->
+
+       <img src={{profile.src}} class="thumbnail" />
+      {{#if permission.name}}
+        {{pet.name}}
+      {{/if}}
+
+      {{#if permission.dob}}
+        {{pet.dob}}
+      {{/if}}
+
+      {{#if permission.microship}}
+        {{pet.microship}}
+      {{/if}}
+
+      {{#if permission.height}}
+        {{pet.height}}
+      {{/if}}
+
+      {{#if permission.weight}}
+        {{pet.weight}}
+      {{/if}}
+
+      {{#if permission.gender}}
+        {{pet.gender}}
+      {{/if}}
+
+
+      {{#if permission.breed}}
+        {{pet.breed}}
+      {{/if}}
+
+      {{#if permission.color}}
+        {{pet.color}}
+      {{/if}}
+
+      {{#if permission.typeId}}
+        {{pet.typeId}}
+      {{/if}}
+
+      {{#if permission.appearance}}
+        {{pet.appearance}}
+      {{/if}}
+
+      {{#if permission.desc}}
+        {{pet.desc}}
+      {{/if}}
+
+      {{#if permission.remark}}
+        {{pet.remark}}
+      {{/if}}
+
+
+
+
+      {{#each owner.profile}}
+
+        {{#if owner.permission.addr}}
+          {{address}}
+        {{/if}}
+        {{#if owner.permission.email}}
+          {{email}}
+        {{/if}}
+        {{#if owner.permission.name}}
+          {{name}}
+        {{/if}}
+        {{#if owner.permission.tel}}
+          {{tel}}
+        {{/if}}
+      {{/each}}
+
+      <button id="contact"  name="contact" class="info">ติดต่อเจ้าของ</button>
+
+
+  </div>
+
+</template>

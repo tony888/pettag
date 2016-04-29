@@ -1,0 +1,158 @@
+<template name="tagEditPermission">
+  <form class="main form page">
+
+
+    <h2>ตั้งค่าเปิดเผยข้อมูลเป็นสาธารณะ {{no}}</h2>
+    <div class="form-group ">
+
+      <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
+      <input id="sel_all"  type="checkbox" {{isChkAll}} >
+      <!--  </div>-->
+      <div class="col-sm-2">
+        <label class="control-label" for="tagNo">เลือกทั้งหมด</label>
+      </div>
+    </div>
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="tagNo">หมายเลข Tag</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_tagNo" name="tagPermis" type="checkbox" value="tagNo" {{isCheckTag}} >
+          <input id="tagNo" name="tagNo" type="hidden" value="{{no}}">
+      <!--  </div>-->
+
+    </div>
+
+
+    <div class="form-group ">
+        <div class="col-sm-2">
+          <label class="control-label" for="typeId">ประเภทสัตว์</label>
+        </div>
+      <!--<div class="switch controls" id="toggle_typeId"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_typeId" name="tagPermis" type="checkbox" value="typeId"  {{isCheckTypeId}}>
+      <!--  </div>-->
+
+    </div>
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="name">ชื่อสัตว์</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_name"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_name" name="tagPermis" type="checkbox" value="name" {{isCheckName}}>
+      <!--  </div>-->
+
+    </div>
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="microship">Microship Id </label>
+      </div>
+      <!--<div class="switch controls" id="toggle_microship"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_microship" name="tagPermis" type="checkbox" value="microship" {{isCheckMicroship}}>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="dob">วันเกิด</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_dob"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_dob" name="tagPermis" type="checkbox" value="dob" {{isCheckDob}}>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="gender">เพศ</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_gender"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_gender" name="tagPermis" type="checkbox"  value="gender" {{isCheckGender}}>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="breed">สายพันธุ์</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_breed"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_breed" name="tagPermis" type="checkbox" value="breed"  {{isCheckBreed}}>
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="color">สี </label>
+      </div>
+      <!--<div class="switch controls" id="toggle_color"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_color" name="tagPermis" type="checkbox" value="color" {{isCheckColor}}>
+    <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_weight"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_weight"  name="tagPermis" type="checkbox" value="weight" {{isCheckWeight}} >
+      <!--  </div>-->
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="height">ความสูง (เซ็นติเมตร)</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_height"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_height" name="tagPermis" type="checkbox"  value="height" {{isCheckHeight}} >
+      <!--  </div>-->
+
+    </div>
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+        <label class="control-label" for="appearance">ตำหนิ</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_appearance"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_appearance" name="tagPermis" type="checkbox" value="appearance"  {{isCheckAppear}}>
+    <!--  </div>-->
+
+    </div>
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+          <label class="control-label" for="desc">รายละเอียด</label>
+      </div>
+        <!--<div class="switch controls  switch-small" id="toggle_desc"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_desc" name="tagPermis" type="checkbox" value="desc"  {{isCheckDesc}}>
+      <!--  </div>-->
+
+    </div>
+
+
+
+    <div class="form-group ">
+      <div class="col-sm-2">
+          <label class="control-label" for="remark">หมายเหตุ</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_remark"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_remark" name="tagPermis" type="checkbox" value="remark" {{isCheckRemark}}>
+      <!--  </div>-->
+
+    </div>
+
+    <!--type="submit"-->
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </form>
+
+</template>

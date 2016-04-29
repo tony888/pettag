@@ -1,0 +1,18 @@
+<template name="tagLost">
+  <form class="main form page">
+    <div class="form-group ">
+      <div class="col-sm-2">
+          <label class="control-label" for="remark">แจ้งวัตว์เลี้ยงหาย :</label>
+      </div>
+      <!--<div class="switch controls" id="toggle_remark"  data-on-label="SHOW" data-off-label="OFF">-->
+          <input id="chk_disable" name="chk_disable" type="checkbox" >
+      <!--  </div>-->
+
+    </div>
+
+
+    <input type="submit" value="Submit" class="btn btn-primary" disabled />
+    <a href="{{pathFor 'viewTag'}}" target="_blank" class="btn btn-default" >preview</a>
+    <a href="{{pathFor 'userPermission'}}" id="userPermis" class="btn btn-info">ตั้งค่าเปิดเผยข้อมูลส่วนตัว</a>
+  </form>
+</template>

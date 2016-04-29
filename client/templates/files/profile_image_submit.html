@@ -1,0 +1,15 @@
+<template name="profileImageSubmit">
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="btn btn-warning">
+          <input type="file" value="เพิ่มภาพ Profile " name="profileUpload" id="profileUpload" >
+        </div>
+      </div>
+    </div>
+
+  {{#each profiles}}
+    {{> profileImageList}}
+  {{/each}}
+
+</template>

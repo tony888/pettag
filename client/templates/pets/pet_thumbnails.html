@@ -4,18 +4,21 @@
     <div class="col-md-12">
 
        <div class="image-info">
-          {{#if ownsFile}}
-          <a class="delete-image">
-              <i class="fa fa-trash fa-2x"></i>
-            </a>
-          {{/if}}
-          {{name}}:{{userId}}: {{postDate}}
 
-        <p>  {{url}}</p>
-          <a href="{{url}}" target="_blank" class="thumbnail">
-            <img src="{{url}}" />
-          </a>
-  
+
+          <div >
+            {{#if ownsFile}}
+              <a class="delete-image">
+                <i class="fa fa-trash fa-2x"></i>ลบรูปภาพ
+              </a>
+            {{/if}}
+            <a href="{{url}}" target="_blank" class="thumbnail">
+              <img src="{{url}}" /> {{_id}}
+            </a>
+          </div>
+
+
+
       </div>
 
     </div>

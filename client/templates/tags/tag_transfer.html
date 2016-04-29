@@ -1,0 +1,15 @@
+<template name="tagTransfer">
+
+      <form class="main form page">
+        <input name="tagNo" id="tagNo" type="hidden" value="{{no}}" />
+        <div class="form-group {{errorClass 'email'}}">
+          <label class="control-label" for="email">email ผู้รับโอน</label>
+          <div class="controls">
+              <input name="email" id="email" type="text" value="" placeholder="ระบุ email ผู้รับโอน" class="form-control"/>
+              <span class="help-block">{{errorMessage 'email'}}</span>
+          </div>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary"/>
+    </form>
+</template>

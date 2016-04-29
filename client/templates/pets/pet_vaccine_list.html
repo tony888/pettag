@@ -1,0 +1,21 @@
+<template name="petVaccineList">
+  <div class="tag page">
+    <h2>ข้อมูลวัคซีน</h2>
+    <form>
+      <input type="hidden" id="tagNo" name="tagNo" value="{{no}}" />
+      <a href="{{pathFor 'petVaccine'}}" class="discuss btn btn-info">เพิ่มข้อมูล</a>
+    {{#each vaccines}}
+      <div>
+      {{vaccineDate}}  :  {{vaccine}} :
+
+      <button name="edit" data-action="edit/vaccine" value="{{_id}}" class="discuss btn btn-warning"> แก้ไขข้อมูล</button>
+      <button name="delete"  data-action="delete/vaccine" value="{{_id}}"  class="discuss btn btn-danger"> ลบข้อมูล</button>
+
+      </div>
+    {{/each}}
+
+
+    <a href="{{pathFor 'tagsList'}}" class="btn btn-default">กลับหน้าหลัก</a>
+  </form>
+  </div>
+</template>

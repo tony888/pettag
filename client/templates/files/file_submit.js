@@ -1,4 +1,3 @@
-
 Template.fileSubmit.created = function(){
    var self = this;
 
@@ -23,37 +22,54 @@ Template.fileSubmit.rendered = function(){
 };
 
 
-
 Template.fileSubmit.events({
-  "dropped #dropzone": function(e){
+//  "change #fileupload": function(e){
+"click #btnUpload": function(e){
     var user = Meteor.user();
-   var tag_no = $('input[name="tagNo"]').val();
+    var tag_no = $('input[name="tagNo"]').val();
+    var file_name = $('input[name="txtFileName"]').val();
+    var file_upload = $('input[name="fileupload"]');
 
-    FS.Utility.eachFile(e,function(f){
-      var newFile = new FS.File(f);
+    var f= file_upload[0].files;
 
-      newFile.username = user.username;
-      newFile.userId = user._id;
-      newFile.tagNo = tag_no;
+    for (var i = 0, ln = file_upload.length; i < ln; i++) {
 
-      FilesStore.insert(newFile,function(error,fileObj){
-        if(error){
-          toastr.error('Upload failed...');
-        }else{
-          toastr.success('Upload success');
-        }
-      });
+        var newFile = new FS.File(f[i]);
+
+        newFile.username = user.username;
+        newFile.userId = user._id;
+        newFile.tagNo = tag_no;
+        newFile.fileName = file_name;
+        newFile.typeName = "file";
+
+        FilesStore.insert(newFile,function(error,fileObj){
+          if(error){
+            toastr.error('Upload failed...');
+          }else{
 
 
-    });
+            //Tags.update({tag}, {$addToSet:{"files":{"file_id":fileObj._id,src:"/cfs/files/files/"+fileObj._id}}});
+
+            toastr.success('Upload success');
+            var fileId = fileObj._id;
+            var src = '/cfs/files/files/'+fileObj._id;
+
+            Meteor.call('tagUpdateFile',tag_no,fileId,src,file_name);
+          }
+        });
+
+    }
+
+    $('input[name="fileupload"]').val('');
+    $('input[name="txtFileName"]').val('');
   }
 });
 
 
 Template.fileSubmit.helpers({
   'files' : function(){
-
-    return FilesStore.find({},{sort:{uploadedAt:-1}});
+ //console.log(this);
+    return FilesStore.find({userId:Meteor.userId(),tagNo:this.no,typeName:"file"},{sort:{uploadedAt:-1}});
 
   }
 

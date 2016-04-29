@@ -19,7 +19,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 twbs:bootstrap
 underscore
 iron:router
-ian:accounts-ui-bootstrap-3
 accounts-password
 audit-argument-checks
 sacha:spin
@@ -35,3 +34,9 @@ momentjs:moment
 natestrauser:font-awesome
 cfs:graphicsmagick
 ostrio:meteor-root
+mrt:bootstrap-switch
+rajit:bootstrap3-datepicker
+random
+mdg:geolocation
+rzymek:moment-locale-th
+accounts-ui

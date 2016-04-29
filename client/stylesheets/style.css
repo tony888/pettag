@@ -166,3 +166,11 @@ body {
 .delete-image:hover {
   text-decoration: none;
 }
+.thumbnail{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.has-switch span, .has-switch label {
+  font-size: 10px !important;
+}

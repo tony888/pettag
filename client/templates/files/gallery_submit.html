@@ -1,0 +1,14 @@
+<template name="gallerySubmit">
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="btn btn-warning">
+          <input type="file" value="เพิ่มภาพ gallery" name="galleryUpload" id="galleryUpload" >
+        </div>
+      </div>
+    </div>
+
+  {{#each gallerys}}
+    {{> galleryList}}
+  {{/each}}
+</template>

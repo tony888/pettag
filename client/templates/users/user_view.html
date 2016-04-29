@@ -1,0 +1,13 @@
+<template name="userView">
+
+    {{user}}
+
+    {{#each emails}}
+      {{address}}
+    {{/each}}
+
+    {{profile.address}}
+
+    <a href="{{pathFor 'userEdit'}}" class="discuss btn btn-info">แก้ไขข้อมูล</a>
+    <a href="{{pathFor 'tagsList'}}" class="discuss btn btn-default">กลับหน้าหลัก</a>
+</template>

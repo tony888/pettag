@@ -1,0 +1,11 @@
+<template name="tagAssingList">
+  {{#each tags}}
+  <div>
+    {{no}} {{status}}
+    {{history}}
+    <input type="hidden" value="{{history.hid}}" name="hid" />
+    <button type="button" id="btnAccept" name="btnAccept" data-hid="{{history.hid}}" class="btn btn-success">ตอบรับ</button>
+    <button type="button" id="btnCancel" name="btnCancel" data-hid="{{history.hid}}"  class="btn btn-warning">ยกเลิก</button>
+  </div>
+  {{/each}}
+</template>

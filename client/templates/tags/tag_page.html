@@ -2,10 +2,54 @@
   <div class="tag-page page">
     <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
     <ul class="pets">
-      {{#each pets}}
-        {{>petItem}}
+      <li>
+        <h4>
+          <span class="name">ชื่อ:{{pet.name}}</span>
+        </h4>
+
+      </li>
+      <img src={{profile.src}} class="thumbnail" />
+
+      {{#each files}}
+        <a href="{{src}}" target="_blank">{{file_name}}</a>
       {{/each}}
+
+      {{#each gallery}}
+        <a href="{{src}}" target="_blank"><img src={{src}} class="thumbnail" /></a>
+      {{/each}}
+
+      <p class="desc">ประเภท:{{pet.typeId}}</p>
+      <p class="dob">วันเกิด:{{pet.dob}}</p>
+      <p class="desc">รายละเอียด:{{desc}}</p>
+      <p class="gender">เพศ:{{pet.gender}}</p>
+      <p class="desc">สายพันธ์ุ:{{pet.breed}}</p>
+      <p class="desc">สี:{{pet.color}}</p>
+
+     <p class="desc">microship Id :{{pet.microshipId}}</p>
+     <p class="desc">รายละเอียด :{{pet.desc}}</p>
+     <p class="desc">หมายเหตุ :{{pet.remark}}</p>
+     <p class="desc"> ตำหนิ:{{pet.appearance}}</p>
+
+      <p>{{location.lat}} : {{location.long}}</p>
+
     </ul>
+    {{#each vaccines}}
+      <p>{{vaccine}} : {{vaccineDate}}</p>
+
+    {{/each}}
+
+    {{#each history}}
+
+      <p>{{status}} : {{email}}</p>
+
+    {{/each}}
+
+
+          <p class="desc">  {{> ownersList}}</p>
+
+          <p class="desc">  {{> filesList}}</p>
+
+
     <!--
     {{#if currentUser}}
       {{>commentSubmit}}
