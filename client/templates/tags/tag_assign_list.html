@@ -1,11 +1,30 @@
 <template name="tagAssingList">
-  {{#each tags}}
-  <div>
-    {{no}} {{status}}
-    {{history}}
-    <input type="hidden" value="{{history.hid}}" name="hid" />
-    <button type="button" id="btnAccept" name="btnAccept" data-hid="{{history.hid}}" class="btn btn-success">ตอบรับ</button>
-    <button type="button" id="btnCancel" name="btnCancel" data-hid="{{history.hid}}"  class="btn btn-warning">ยกเลิก</button>
+  <div class="box-header with-border">
+    <h3 class="box-title">ตอบรับการโอนสัตว์เลี้ยง </h3>
   </div>
-  {{/each}}
+  <div class="box-body">
+  <table class="table table-bordered">
+    <tbody><tr>
+
+      <th style="width:30%">รายละเอียด</th>
+      <th style="width:60%">ตอบรับ/ยกเลิก</th>
+
+    </tr>
+
+        {{#each tags}}
+        <tr>
+          <td>
+            <img class="profile-user-img img-responsive" src="{{profile.src}}" alt="Pet profile picture">
+              {{no}} {{name}} {{status}}
+
+          </td>
+          <td>
+            <input type="hidden" value="{{history.hid}}" name="hid" />
+            <button type="button" id="btnAccept" name="btnAccept" data-hid="{{history.hid}}" class="btn btn-success">ตอบรับ</button>
+            <button type="button" id="btnCancel" name="btnCancel" data-hid="{{history.hid}}"  class="btn btn-warning">ยกเลิก</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody></table>
+  </div>
 </template>

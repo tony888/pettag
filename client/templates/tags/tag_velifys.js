@@ -1,5 +1,7 @@
 Template.tagVelifys.onCreated(function() {
   Session.set('tagVelifyErrors', {});
+
+
 });
 
 Template.tagVelifys.helpers({
@@ -8,7 +10,12 @@ Template.tagVelifys.helpers({
   },
   errorClass: function (field) {
     return !!Session.get('tagVelifyErrors')[field] ? 'has-error' : '';
+  },
+  showTagNumber:function(){
+    return this.no;
   }
+
+
 
 });
 
@@ -24,7 +31,7 @@ Template.tagVelifys.events({
       serial:$.trim($(e.target).find('[name=serial]').val()),
 
     };
-
+    //console.log(this);
     //var TagActive = validateTagActive(tag);
 
 
@@ -33,7 +40,7 @@ Template.tagVelifys.events({
       return Session.set("tagVelifyErrors", errors);
 
     var errors = duplicateTag(tag);
-  
+
     if(errors.tagNo)
       return Session.set("tagVelifyErrors", errors);
 
@@ -44,12 +51,23 @@ Template.tagVelifys.events({
         //return throwError(error.reason);
 
       // show this result but route anyway
-      if (result)
-        toastr.success('ระบุข้อมูลสัตว์เลี้ยง');
+      if (result){
 
-      Router.go('petSubmit', {no:tag.tagNo});
+
+        if(Meteor.userId()){
+          toastr.success('ระบุข้อมูลสัตว์เลี้ยง');
+          Router.go('petSubmit', {no:result.no});
+        }else{
+          //console.log(result);
+          //this.render('accessDenied');
+          toastr.success('กรุณา Login เข้าสู่ระบบ'+result.no);
+          Router.go('loginAfterVelidate',{no:result.no});
+          // return pause();
+        }
+      }
+        //console.log(tagNo);
+
     });
-
 
     //  Router.go('petSubmit', {no: tag.tagNo});
 

@@ -1,42 +1,77 @@
 <template name="login">
-  <form class="form-horizontal">
-  <fieldset>
-
-  <!-- Form Name -->
-  <legend >Login</legend>
-
-  <!-- Text input-->
-  <div class="form-group {{errorClass 'email'}}">
-    <label class="col-md-4 control-label" for="email">E-Mail</label>
-    <div class="col-md-4">
-    <input id="email" name="email" type="email" placeholder="E-Mail" class="form-control input-md" required="">
-    <span class="help-block">{{errorMessage 'email'}}</span>
-    </div>
-  </div>
-  <!-- Password input-->
-  <div class="form-group {{errorClass 'password'}}">
-    <label class="col-md-4 control-label" for="password">รหัสผ่าน</label>
-    <div class="col-md-4">
-      <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="form-control input-md" required="">
-      <span class="help-block">{{errorMessage 'password'}}</span>
-    </div>
-  </div>
+<div  class="row" style="margin-top:50px">
 
 
 
+      <div class="login-logo">
+        <a class="logo" href="#"><img src="/assets/img/logo.png" alt="anitag"></a>
 
-  <!-- Button -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="regis"></label>
-    <div class="col-md-4">
-      <input type="submit" value="Login" class="btn btn-primary"/>
-    <!--  <button id="regis" name="regis" class="btn btn-success">สมัครสมาชิก</button>-->
-    </div>
-  </div>
-
-  </fieldset>
-  </form>
+      </div>
 
 
 
+            <div class="nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="active" style="width:48%" align="center">
+                  <a href="#tab_1" data-toggle="tab" aria-expanded="true">สมัครสมาชิก</a>
+                </li>
+                <li class="" style="width:49%" align="center">
+                  <a href="#tab_2" data-toggle="tab" aria-expanded="false">Login</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+
+
+                              {{>userRegister}}
+
+
+                  </div>
+                  <div class="tab-pane " id="tab_2">
+
+
+                              <form >
+                                <div class="box-body">
+
+                              <!-- Text input-->
+                              <div class="input-group {{errorClass 'email'}}">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input id="email" name="email" type="email" placeholder="E-Mail" class="form-control" required="">
+
+                             </div>
+                             <span class="help-block">{{errorMessage 'email'}}</span>
+
+                              <!-- Password input-->
+                              <div class="input-group {{errorClass 'password'}}">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                  <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="form-control" required="">
+
+                                </div>
+                                <span class="help-block">{{errorMessage 'password'}}</span>
+
+
+
+
+                              <!-- Button -->
+                              <div class="row">
+
+                                  <div class="col-sm-4">
+                                    <input type="submit" id="login" value="Login" class="btn btn-primary"/>
+                                  <!--  <button id="regis" name="regis" class="btn btn-success">สมัครสมาชิก</button>-->
+                                  </div>
+                              </div>
+                            </div>
+                          </form>
+
+                          <!--  </div>
+                          </div>-->
+
+
+
+                  </div>
+              </div>
+            </div>
+
+
+      </div>
 </template>

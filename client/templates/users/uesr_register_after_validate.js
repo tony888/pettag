@@ -1,10 +1,10 @@
-Template.userRegister.onCreated(function() {
+Template.userRegisterAfterValidate.onCreated(function() {
   Session.set('userSubmitErrors', {});
-
+  Session.set('tagno', this.data.no);
 });
 
 
-Template.userRegister.helpers({
+Template.userRegisterAfterValidate.helpers({
   errorMessage: function(field) {
     return Session.get('userSubmitErrors')[field];
   },
@@ -14,7 +14,7 @@ Template.userRegister.helpers({
 });
 
 
-Template.userRegister.events({
+Template.userRegisterAfterValidate.events({
   'click #regis':function(event,template){
     event.preventDefault();
     //Session.set('userSubmitErrors', null);
@@ -46,19 +46,23 @@ Template.userRegister.events({
         }
         if(result){
 
-
-
             Meteor.loginWithPassword(user.emails, user.password1,function(error){
               toastr.error.reason;
             });
 
-
-
-
           if(Meteor.loggingIn()){
             toastr.success('สร้างบัญชีผู้ใช้สำเร็จ');
-            Router.go('tagsList');
+            //Router.go('userPermission');
+            if(Session.get('tagno')){
+              //console.log(Session.get('tagno'));
+              Router.go('petSubmit',{no:Session.get('tagno')});
+            }else{
+              Router.go('tagsList');
+            }
+
           }
+
+
 
           //console.log(Meteor.loggingIn())
           //  toastr.success('สร้างบัญชีผู้ใช้สำเร็จ');

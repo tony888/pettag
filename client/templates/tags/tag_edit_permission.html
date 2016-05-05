@@ -1,139 +1,171 @@
 <template name="tagEditPermission">
-  <form class="main form page">
+
+  <div class="box-header with-border">
+    <h3 class="box-title">แก้ไขการตั้งค่าเปิดเผยข้อมูล</h3>
+  </div>
 
 
-    <h2>ตั้งค่าเปิดเผยข้อมูลเป็นสาธารณะ {{no}}</h2>
+    <form class="form-horizontal">
+      <div class="box-body">
+
+
+
+    
     <div class="form-group ">
 
       <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
-      <input id="sel_all"  type="checkbox" {{isChkAll}} >
+
       <!--  </div>-->
-      <div class="col-sm-2">
-        <label class="control-label" for="tagNo">เลือกทั้งหมด</label>
+    <label class="col-sm-2 control-label" for="tagNo">เลือกทั้งหมด</label>
+      <div class="col-sm-6">
+          <input id="sel_all"  type="checkbox" {{isChkAll}} >
       </div>
     </div>
 
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="tagNo">หมายเลข Tag</label>
-      </div>
-      <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
+      <label class="col-sm-2 control-label" for="tagNo">หมายเลข Tag</label>
+        <div class="col-sm-6">
           <input id="chk_tagNo" name="tagPermis" type="checkbox" value="tagNo" {{isCheckTag}} >
           <input id="tagNo" name="tagNo" type="hidden" value="{{no}}">
+      </div>
+      <!--<div class="switch controls" id="toggle_tagNo"  data-on-label="SHOW" data-off-label="OFF">-->
+
       <!--  </div>-->
 
     </div>
 
 
     <div class="form-group ">
-        <div class="col-sm-2">
-          <label class="control-label" for="typeId">ประเภทสัตว์</label>
+      <label class="col-sm-2 control-label" for="typeId">ประเภทสัตว์</label>
+          <div class="col-sm-6">
+
+          <input id="chk_typeId" name="tagPermis" type="checkbox" value="typeId"  {{isCheckTypeId}}>
         </div>
       <!--<div class="switch controls" id="toggle_typeId"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_typeId" name="tagPermis" type="checkbox" value="typeId"  {{isCheckTypeId}}>
+
       <!--  </div>-->
 
     </div>
 
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="name">ชื่อสัตว์</label>
+      <label class="col-sm-2 control-label" for="name">ชื่อสัตว์</label>
+        <div class="col-sm-6">
+        <input id="chk_name" name="tagPermis" type="checkbox" value="name" {{isCheckName}}>
       </div>
       <!--<div class="switch controls" id="toggle_name"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_name" name="tagPermis" type="checkbox" value="name" {{isCheckName}}>
+
       <!--  </div>-->
 
     </div>
 
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="microship">Microship Id </label>
+        <label class="col-sm-2 control-label" for="microship">Microship Id </label>
+        <div class="col-sm-6">
+            <input id="chk_microship" name="tagPermis" type="checkbox" value="microship" {{isCheckMicroship}}>
       </div>
       <!--<div class="switch controls" id="toggle_microship"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_microship" name="tagPermis" type="checkbox" value="microship" {{isCheckMicroship}}>
+
       <!--  </div>-->
 
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="dob">วันเกิด</label>
+        <label class="col-sm-2 control-label" for="dob">วันเกิด</label>
+        <div class="col-sm-6">
+          <input id="chk_dob" name="tagPermis" type="checkbox" value="dob" {{isCheckDob}}>
       </div>
       <!--<div class="switch controls" id="toggle_dob"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_dob" name="tagPermis" type="checkbox" value="dob" {{isCheckDob}}>
+
       <!--  </div>-->
 
     </div>
-
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="gender">เพศ</label>
+      <label class="col-sm-2 control-label" for="age">อายุ</label>
+      <div class="col-sm-6">
+
+        <input id="chk_age" name="tagPermis" type="checkbox" value="age" {{isCheckAge}} >
+      </div>
+      <!--<div class="switch controls" id="toggle_dob"  data-on-label="SHOW" data-off-label="OFF">-->
+
+      <!--  </div>-->
+
+    </div>
+    <div class="form-group ">
+        <label class="col-sm-2 control-label" for="gender">เพศ</label>
+        <div class="col-sm-6">
+          <input id="chk_gender" name="tagPermis" type="checkbox"  value="gender" {{isCheckGender}}>
       </div>
       <!--<div class="switch controls" id="toggle_gender"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_gender" name="tagPermis" type="checkbox"  value="gender" {{isCheckGender}}>
+
       <!--  </div>-->
 
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="breed">สายพันธุ์</label>
+      <label class="col-sm-2 control-label" for="breed">สายพันธุ์</label>
+        <div class="col-sm-6">
+          <input id="chk_breed" name="tagPermis" type="checkbox" value="breed"  {{isCheckBreed}}>
       </div>
       <!--<div class="switch controls" id="toggle_breed"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_breed" name="tagPermis" type="checkbox" value="breed"  {{isCheckBreed}}>
+
       <!--  </div>-->
 
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="color">สี </label>
+        <label class="col-sm-2 control-label" for="color">สี </label>
+        <div class="col-sm-6">
+          <input id="chk_color" name="tagPermis" type="checkbox" value="color" {{isCheckColor}}>
       </div>
       <!--<div class="switch controls" id="toggle_color"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_color" name="tagPermis" type="checkbox" value="color" {{isCheckColor}}>
+
     <!--  </div>-->
 
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
+        <label class="col-sm-2 control-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
+        <div class="col-sm-6">
+            <input id="chk_weight"  name="tagPermis" type="checkbox" value="weight" {{isCheckWeight}} >
       </div>
       <!--<div class="switch controls" id="toggle_weight"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_weight"  name="tagPermis" type="checkbox" value="weight" {{isCheckWeight}} >
+
       <!--  </div>-->
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="height">ความสูง (เซ็นติเมตร)</label>
-      </div>
-      <!--<div class="switch controls" id="toggle_height"  data-on-label="SHOW" data-off-label="OFF">-->
+        <label class="col-sm-2 control-label" for="height">ความสูง (เซ็นติเมตร)</label>
+        <div class="col-sm-6">
           <input id="chk_height" name="tagPermis" type="checkbox"  value="height" {{isCheckHeight}} >
       <!--  </div>-->
+      </div>
+      <!--<div class="switch controls" id="toggle_height"  data-on-label="SHOW" data-off-label="OFF">-->
+
 
     </div>
 
     <div class="form-group ">
-      <div class="col-sm-2">
-        <label class="control-label" for="appearance">ตำหนิ</label>
+        <label class="col-sm-2 control-label" for="appearance">ตำหนิ</label>
+        <div class="col-sm-6">
+          <input id="chk_appearance" name="tagPermis" type="checkbox" value="appearance"  {{isCheckAppear}}>
       </div>
       <!--<div class="switch controls" id="toggle_appearance"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_appearance" name="tagPermis" type="checkbox" value="appearance"  {{isCheckAppear}}>
+
     <!--  </div>-->
 
     </div>
 
 
     <div class="form-group ">
-      <div class="col-sm-2">
-          <label class="control-label" for="desc">รายละเอียด</label>
+      <label class="col-sm-2 control-label" for="desc">รายละเอียด</label>
+        <div class="col-sm-6">
+          <input id="chk_desc" name="tagPermis" type="checkbox" value="desc"  {{isCheckDesc}}>
       </div>
         <!--<div class="switch controls  switch-small" id="toggle_desc"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_desc" name="tagPermis" type="checkbox" value="desc"  {{isCheckDesc}}>
+
       <!--  </div>-->
 
     </div>
@@ -141,18 +173,23 @@
 
 
     <div class="form-group ">
-      <div class="col-sm-2">
-          <label class="control-label" for="remark">หมายเหตุ</label>
+        <label class="col-sm-2 control-label" for="remark">หมายเหตุ</label>
+        <div class="col-sm-6">
+        <input id="chk_remark" name="tagPermis" type="checkbox" value="remark" {{isCheckRemark}}>
       </div>
       <!--<div class="switch controls" id="toggle_remark"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_remark" name="tagPermis" type="checkbox" value="remark" {{isCheckRemark}}>
+
       <!--  </div>-->
 
     </div>
 
     <!--type="submit"-->
 
-    <input type="submit" value="Submit" class="btn btn-primary"/>
-  </form>
 
+  <div class="box-footer col-sm-offset-2 col-sm-6">
+    <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary"/>
+     <button type="button" name="btn-skip" id="btn-skip" class="btn btn-default">ข้าม</button>
+  </div>
+  </div>
+</form>
 </template>

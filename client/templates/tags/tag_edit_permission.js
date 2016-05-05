@@ -14,6 +14,7 @@ Template.tagEditPermission.onCreated(function() {
   Session.set("chkTypeId",this.data.permission.typeId);
   Session.set("chkWeight",this.data.permission.weight);
   Session.set("chkRemark",this.data.permission.remark);
+  Session.set("chkAge",this.data.permission.age);
 
   Session.set("chkMicroShip",this.data.permission.microship);
 
@@ -22,7 +23,7 @@ Template.tagEditPermission.onCreated(function() {
 Template.tagEditPermission.helpers({
   //'submit form': function(e) {
   isChkAll:function(){
-     return Session.equals("chkTagNo",true) && Session.equals("chkAppear",true)
+     return Session.equals("chkTagNo",true) && Session.equals("chkAppear",true)&& Session.equals("chkAge",true)
      && Session.equals("chkBreed",true) && Session.equals("chkGender",true)
      && Session.equals("chkColor",true) && Session.equals("chkDesc",true)
      && Session.equals("chkDob",true) && Session.equals("chkHeight",true)
@@ -34,6 +35,11 @@ Template.tagEditPermission.helpers({
   isCheckTag:function(){
 
     return Session.equals("chkTagNo",true)?'checked':'';
+
+  },
+  isCheckAge:function(){
+
+    return Session.equals("chkAge",true)?'checked':'';
 
   },
   isCheckAppear:function(){
@@ -146,7 +152,9 @@ Template.tagEditPermission.events({
      height:template.$("#chk_height").is(":checked"),
      appearance:template.$("#chk_appearance").is(":checked"),
      desc:template.$("#chk_desc").is(":checked"),
-     remark:template.$("#chk_remark").is(":checked")
+     remark:template.$("#chk_remark").is(":checked"),
+     age:template.$("#chk_age").is(":checked"),
+
 
    };
    //console.log(tag);

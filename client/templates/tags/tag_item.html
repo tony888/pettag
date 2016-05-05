@@ -1,29 +1,68 @@
 <template name="tagItem">
-  {{isLost}}
-  <div class="tag">
-    <div class="tag-content">
-      <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
-      <p>
-        {{#if ownPost}}<a href="{{pathFor 'tagEdit'}}">แก้ไข</a>{{/if}}
-      </p>
+  <!--  <tr>
+      <td> </td>
+      <td><img src="{{profile.src}}" class="profile-user-img img-responsive"/> </td>
+      <td>-->
+      <div class="row">
+
+              <div class="col-sm-2">
+                  <img src="{{profile.src}}" class="profile-user-img img-responsive"/>
+              </div>
+              <div class="col-sm-4">
+                <strong>ชื่อ : </strong>{{pet.name}}<br/>
+                <strong>Tag no : </strong>{{no}}<br/>
+                <strong>เพศ : </strong>{{pet.gender}}<br/>
+                <strong>สายพันธุ์ : </strong>{{pet.breed}}<br/>
+                <strong>Tag status : </strong><span class="{{spanTagStatus}}">{{status}}</span><br/>
+                  <br/>
+                    <br/>
+
+                  <!--  <dl class="dl-horizontal">
+                      <dt>ชื่อ</dt>
+                      <dd>{{name}}</dd>
+                      <dt>Tag no</dt>
+                      <dd>{{no}}</dd>
+                      <dt>เพศ</dt>
+                      <dd>{{gender}}</dd>
+                      <dt>สายพันธุ์</dt>
+                      <dd>{{breed}}</dd>
+                      <dt>Tag status</dt>
+                      <dd>{{status}}</dd>
+                    </dl>
+                  -->
+              </div>
+            <!--</td>
+
+            <td>-->
+              <div class="col-sm-5">
+
+                  {{#if showMapPet}}
+                    <a href="{{pathFor 'petSubmit'}}" class="discuss btn btn-success">เพิ่มข้อมูลสัตว์เลี้ยง</a>
+                  {{else}}
+                    <a href="{{pathFor 'tagPage'}}" class="discuss btn btn-success">ดูข้อมูล</a>
+
+                    <a href="{{pathFor 'tagEdit'}}" class="discuss btn btn-default">แก้ไข</a>
+                  {{/if}}
+
+                  {{#if showLostButton}}
+                    <a href="{{pathFor 'tagLost'}}" class="discuss btn btn-danger">แจ้งหาย</a>
+                  {{/if}}
+                  {{#if showFoundPet}}
+                      <a href="{{pathFor 'tagActive'}}" class="discuss btn btn-danger">พบสัตว์แล้ว</a>
+                  {{/if}}
+
+                  <!--{{#if showTransferButton}}
+                    <a href="{{pathFor 'tagTransfer'}}" class="discuss btn btn-warning">โอน</a>
+                  {{/if}}
+                  {{#if showCancelTransferBTN}}
+                    <a href="{{pathFor 'tagTransfer'}}" class="discuss btn btn-warning">ยกเลิกการโอน</a>
+                  {{/if}}-->
+
+              </div>
+
     </div>
-    {{#if showMapPet}}
-      <a href="{{pathFor 'petSubmit'}}" class="discuss btn btn-success">เพิ่มข้อมูลสัตว์เลี้ยง</a>
-    {{else}}
-      <a href="{{pathFor 'tagPage'}}" class="discuss btn btn-success">ดูข้อมูล</a>
+    <br/><br/><br/>
+  <!--  </td>
+  </tr> -->
 
-      <a href="{{pathFor 'tagEdit'}}" class="discuss btn btn-warning">แก้ไข</a>
-    {{/if}}
-
-    {{#if showLostButton}}
-      <a href="{{pathFor 'tagLost'}}" class="discuss btn btn-info">แจ้งหาย</a>
-    {{/if}}
-    {{#if showFoundPet}}
-        <a href="{{pathFor 'tagActive'}}" class="discuss btn btn-info">พบสัตว์แล้ว</a>
-    {{/if}}
-    {{#if showTransferButton}}
-      <a href="{{pathFor 'tagTransfer'}}" class="discuss btn btn-default">โอน</a>
-    {{/if}}
-
-  </div>
 </template>

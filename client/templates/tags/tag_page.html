@@ -1,61 +1,152 @@
 <template name="tagPage">
-  <div class="tag-page page">
-    <h3>Tag NO :{{no}}<span> Status : {{status}}</span></h3>
-    <ul class="pets">
-      <li>
-        <h4>
-          <span class="name">ชื่อ:{{pet.name}}</span>
-        </h4>
 
-      </li>
-      <img src={{profile.src}} class="thumbnail" />
+      <section class="content">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="box box-primary">
+                <div class="box-body box-profile">
+                  <img class="profile-user-img img-responsive" src="{{profile.src}}" alt="Pet profile picture">
+                  <h3 class="profile-username text-center">{{pet.name}}</h3>
+                  <ul class="list-group list-group-unbordered">
 
-      {{#each files}}
-        <a href="{{src}}" target="_blank">{{file_name}}</a>
-      {{/each}}
+                    <li class="list-group-item">
+                      <b>Tag no </b> <a class="pull-right">{{no}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Status</b> <a class="pull-right">{{status}}</a>
+                    </li>
 
-      {{#each gallery}}
-        <a href="{{src}}" target="_blank"><img src={{src}} class="thumbnail" /></a>
-      {{/each}}
+                  </ul>
 
-      <p class="desc">ประเภท:{{pet.typeId}}</p>
-      <p class="dob">วันเกิด:{{pet.dob}}</p>
-      <p class="desc">รายละเอียด:{{desc}}</p>
-      <p class="gender">เพศ:{{pet.gender}}</p>
-      <p class="desc">สายพันธ์ุ:{{pet.breed}}</p>
-      <p class="desc">สี:{{pet.color}}</p>
+                </div>
 
-     <p class="desc">microship Id :{{pet.microshipId}}</p>
-     <p class="desc">รายละเอียด :{{pet.desc}}</p>
-     <p class="desc">หมายเหตุ :{{pet.remark}}</p>
-     <p class="desc"> ตำหนิ:{{pet.appearance}}</p>
+              </div>
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Gallery</h3>
+                </div>
+                <div class="box-body">
+                  {{#each gallery}}
+                    <a href="{{src}}" target="_blank"><img src={{src}} class="gallery-user-img" /></a>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#tab_1" data-toggle="tab" aria-expanded="true">ข้อมูลทั่วไป</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_2" data-toggle="tab" aria-expanded="false">ข้อมูลวัคซีน</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_3" data-toggle="tab" aria-expanded="false">ข้อมูลเอกสาร</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_4" data-toggle="tab" aria-expanded="false">ข้อมูลการโอน</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_5" data-toggle="tab" aria-expanded="false">locationล่าสุด</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                       <strong>ประเภท</strong>
+                        <p class="text-muted">{{pet.typeId}}</p>
+                         <strong>วันเกิด</strong>
+                        <p class="text-muted">{{pet.dob}}</p>
+                         <strong>รายละเอียด</strong>
+                        <p class="text-muted">{{desc}}</p>
+                           <strong>เพศ</strong>
+                        <p class="text-muted">{{getGenders(pet.gender)}}</p>
+                         <strong>สายพันธ์ุ</strong>
+                        <p class="text-muted">{{pet.breed}}</p>
+                         <strong>สี</strong>
+                        <p class="text-muted">{{pet.color}}</p>
+                        <strong>ความสูง</strong>
+                       <p class="text-muted">{{pet.height}}</p>
+                       <strong>น้ำหนัก</strong>
+                      <p class="text-muted">{{pet.weight}}</p>
+                        <strong>microship Id</strong>
+                       <p class="text-muted">{{pet.microshipId}}</p>
+                        <strong>รายละเอียด</strong>
+                       <p class="text-muted">{{pet.desc}}</p>
+                        <strong>หมายเหตุ</strong>
+                       <p class="text-muted">{{pet.remark}}</p>
+                        <strong>ตำหนิ</strong>
+                       <p class="text-muted">{{pet.appearance}}</p>
+                    </div>
+                    <div class="tab-pane" id="tab_2">
+                      <table class="table table-bordered">
+                        <tbody><tr>
 
-      <p>{{location.lat}} : {{location.long}}</p>
+                          <th style="width:50%">วันที่รับวัคซีน</th>
+                          <th style="width:50%">ชื่อวัคซีน</th>
 
-    </ul>
-    {{#each vaccines}}
-      <p>{{vaccine}} : {{vaccineDate}}</p>
+                        </tr>
+                          {{#each vaccines}}
+                            <tr>
+                              <td>{{vaccineDate}}</td>
+                                <td>{{vaccine}}</td>
+                              </tr>
+                          {{/each}}
+                      </tbody></table>
+                      <a href="{{pathFor 'petVaccine'}}" class="discuss btn btn-info">เพิ่มข้อมูล</a>
+                    </div>
+                      <div class="tab-pane" id="tab_3">
+                        <table class="table table-bordered">
+                          <tbody><tr>
 
-    {{/each}}
+                            <th style="width:50%">ชื่อเอกสาร</th>
+                            <th style="width:50%">link</th>
 
-    {{#each history}}
+                          </tr>
+                            {{#each files}}
+                              <tr>
+                                <td>{{file_name}}</td>
+                                  <td><a href="{{src}}" target="_blank">{{file_name}}</a></td>
+                                </tr>
+                            {{/each}}
+                        </tbody></table>
 
-      <p>{{status}} : {{email}}</p>
+                      </div>
+                      <div class="tab-pane" id="tab_4">
+                        <table class="table table-bordered">
+                          <tbody><tr>
 
-    {{/each}}
+                            <th style="width:50%">ผู้รับ</th>
+                            <th style="width:50%">สถานะ</th>
+
+                          </tr>
+                              {{#each history}}
+                              <tr>
+                                <td>{{email}}</td>
+                                  <td>{{status}} </td>
+                                </tr>
+                            {{/each}}
+                        </tbody></table>
+
+                  </div>
+                    <div class="tab-pane" id="tab_5">
+                      <p>{{location.lat}} : {{location.long}}</p>
+                    </div>
+                </div>
+              </div>
 
 
-          <p class="desc">  {{> ownersList}}</p>
-
-          <p class="desc">  {{> filesList}}</p>
 
 
-    <!--
-    {{#if currentUser}}
-      {{>commentSubmit}}
-    {{else}}
-      <p>Please log in to leave a comment.</p>
-    {{/if}}
-  -->
-  </div>
+            <!--
+            {{#if currentUser}}
+              {{>commentSubmit}}
+            {{else}}
+              <p>Please log in to leave a comment.</p>
+            {{/if}}
+          -->
+        </div>
+      </div>
+  </section>
+
 </template>

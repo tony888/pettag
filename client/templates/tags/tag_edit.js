@@ -8,7 +8,7 @@ Tracker.autorun(function() {
 });
 */
 Template.tagEdit.onCreated(function() {
- console.log(this)
+ //console.log(this)
 
   Session.set('tagEditErrors', {});
 
@@ -28,6 +28,9 @@ Template.tagEdit.rendered=function() {
 
 
 Template.tagEdit.helpers({
+  ownsFile:function(){
+      return this.userId === Meteor.userId();
+  },
   errorMessage: function(field) {
     return Session.get('tagEditErrors')[field];
   },
@@ -57,7 +60,19 @@ Template.tagEdit.helpers({
     var r=  FilesStore.find({_id:pid},{sort:{uploadedAt:-1}});
     console.log(r);
     return r;
+  },
+  profileImage:function(){
+
+    return this.profile;
+  },
+
+  galleryImage:function(){
+    return this.gallery;
+  },
+  files:function(){
+    return this.files;
   }
+
 
 });
 
@@ -70,13 +85,44 @@ Template.tagEdit.events({
   "change #gender": function(event){
       Session.set("selectedGender", event.currentTarget.value);
   },
+  "click .delete-image": function(event){
+     event.preventDefault();
+     var tag_no = $("input[name=tagNo]").val();
+     var fileId = this._id;
+     //console.log(fileId);
+     var sure = confirm("ต้องการลบ file นี้ ? ");
+
+
+     if(sure===true){
+       FilesStore.remove({_id:this._id},function(error,result){
+
+         if(error){
+           toastr.error("เกิดข้อผิดพลาด !! "+error);
+         }else{
+
+           Meteor.call("tagRemoveProfileImage", tag_no,fileId, function(error, result){
+             if(error){
+               toastr.error("เกิดข้อผิดพลาด !! "+error);
+             }
+             if(result){
+
+               toastr.success("ลบ file สำเร็จ");
+             }
+           });
+
+         }
+       });
+
+
+     }
+
+  },
 
   'submit form': function(e) {
     e.preventDefault();
     var tagNo = $.trim($(e.target).find('[name=tagNo]').val());
 
     var tag = {
-
       name:$.trim($(e.target).find('[name=name]').val()),
       microship:$.trim($(e.target).find('[name=microship]').val()),
       dob:$.trim($(e.target).find('[name=dob]').val()),

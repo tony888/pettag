@@ -1,89 +1,291 @@
 <template name="viewTag">
-  <div>
-      {{lat}}
-      {{lon}}
+  <section class="content">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
 
-      {{no}}
+                {{#if isLost}}
+                  <div align="center">
+                    <h3 style="color:red">พบเห็นโปรดติดต่อ</h3>
+
+                      {{#each owner.profile}}
+                          {{#if isShowEmail}}
+                            <p><strong>email : </strong> {{email}}</p>
+                          {{/if}}
+                          {{#if isShowName}}
+                              <p><strong>ชื่อ : </strong>{{name}}</p>
+                          {{/if}}
+                          {{#if isShowTel}}
+                            <p><strong>เบอร์โทรศัพท์ : </strong>{{tel}}</p>
+                          {{/if}}
+                          {{#if isShowAddr}}
+                            <p><strong>ที่อยู่ : </strong>{{address}}</p>
+                          {{/if}}
+                      {{/each}}
+
+                    <!--
+                    {{#if owner.permission.name}}
+                       {{owner.profile[0].name}}
+                    {{/if}}
+                    {{#if owner.permission.tel}}
+                       {{owner.profile[0].tel}}
+                    {{/if}}
+                    {{#if owner.permission.addr}}
+                       {{owner.profile[0].address}}
+                    {{/if}}-->
+                      <button id="contact"  name="contact" class="btn btn-info">ติดต่อเจ้าของ</button>
+                  </div>
+
+                {{/if}}
+            <div class="box-body box-profile">
+              <img class="img-responsive" src="{{profile.src}}" alt="Pet profile picture">
+              <h3 class="profile-username text-center">{{pet.name}}</h3>
+
+            </div>
 
 
-      <!--{{#each}}
+                        <div class="nav-tabs-custom">
+                          <ul class="nav nav-tabs">
+                            <li class="active" style="width:18%" align="center">
+                              <a href="#tab_1" data-toggle="tab" aria-expanded="true">ข้อมูลทั่วไป</a>
+                            </li>
+                            <li class="" style="width:18%" align="center">
+                              <a href="#tab_2" data-toggle="tab" aria-expanded="false">ข้อมูลวัคซีน</a>
+                            </li>
+
+                            <li class="" style="width:18%" align="center">
+                              <a href="#tab_3" data-toggle="tab" aria-expanded="false">Gallery</a>
+                            </li>
+                            <li class="" style="width:18%" align="center">
+                              <a href="#tab_4" data-toggle="tab" aria-expanded="false">เอกสารอื่นๆ</a>
+                            </li>
+                            <li class="" style="width:18%" align="center">
+                              <a href="#tab_5" data-toggle="tab" aria-expanded="false">ข้อมูลอื่นๆ</a>
+                            </li>
+                          </ul>
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="tab_1">
+                                <table class="table table-bordered">
+                                  <tbody><tr>
+
+                                    <th style="width:50%"><b>Tag no </b> </th>
+                                    <th style="width:50%">{{no}}</th>
+
+                                  </tr>
+                                {{#if permission.name}}
+                                  <tr>
+                                    <td><b>ชื่อ</b></td>
+                                      <td>{{pet.name}}</td>
+                                  </tr>
+                                  {{/if}}
+                                  <tr>
+                                      <td><b>Status</b></td>
+                                        <td>{{status}}</td>
+                                  </tr>
+
+
+                                  {{#if permission.gender}}
+                                  <tr>
+                                      <td><b>เพศ</b></td>
+                                        <td>{{pet.gender}}</td>
+                                  </tr>
+
+                                  {{/if}}
+
+
+                                  {{#if permission.breed}}
+                                  <tr>
+                                      <td>
+                                        <b>สายพันธุ์</b>
+                                      </td>
+                                      <td>
+                                          {{pet.breed}}
+                                      </td>
+                                  </tr>
+
+                                  {{/if}}
+
+                                  {{#if permission.color}}
+                                  <tr>
+                                      <td>
+
+                                        <b>สี</b>
+                                      </td>
+                                      <td> {{pet.color}}  </td>
+                                    </tr>
+                                  {{/if}}
+
+
+                                  {{#if permission.dob}}
+                                  <tr>
+                                      <td>
+
+                                        <b>วันเกิด</b>
+                                      </td>
+                                      <td> {{pet.dob}}</td>
+                                    </tr>
+
+                                  {{/if}}
+
+                                  {{#if permission.age}}
+                                  <tr>
+                                      <td>
+
+                                        <b>อายุ</b>
+                                      </td>
+                                      <td> {{pet.age}}</td>
+                                    </tr>
+
+                                  {{/if}}
+
+                                  {{#if permission.microship}}
+                                  <tr>
+                                      <td>
+
+                                        <b>Microship Id</b>
+                                      </td>
+                                      <td> {{pet.microship}}</td>
+                                    </tr>
+                                  {{/if}}
+
+                                  {{#if permission.height}}
+                                  <tr>
+                                      <td>
+
+                                        <b>ความสูง</b>
+                                      </td>
+                                      <td>{{pet.height}}</td>
+                                    </tr>
+                                  {{/if}}
+
+                                  {{#if permission.weight}}
+                                  <tr>
+                                      <td>
+
+                                        <b>น้ำหนัก</b>
+                                      </td>
+                                      <td>{{pet.weight}}</td>
+                                    </tr>
+
+                                  {{/if}}
+
+
+                                  {{#if permission.appearance}}
+                                  <tr>
+                                      <td>
+
+                                        <b>ตำหนิ</b>
+                                      </td>
+                                      <td>{{pet.appearance}}</td>
+                                    </tr>
+
+                                  {{/if}}
+
+                                  {{#if permission.desc}}
+                                  <tr>
+                                      <td>
+
+                                        <b>รายละเอียด</b>
+                                      </td>
+                                      <td>{{pet.desc}}</td>
+                                    </tr>
+                                  {{/if}}
+
+                                  {{#if permission.remark}}
+                                  <tr>
+                                      <td>
+
+                                        <b>หมายเหตุ</b>
+                                      </td>
+                                      <td>{{pet.remark}}</td>
+                                    </tr>
+                                  {{/if}}
+
+
+                                </tbody></table>
+
+
+                              </div>
+                              <div class="tab-pane" id="tab_2">
+                                <table class="table table-bordered">
+                                  <tbody><tr>
+
+                                    <th style="width:50%">วันที่รับวัคซีน</th>
+                                    <th style="width:50%">ชื่อวัคซีน</th>
+
+                                  </tr>
+                                    {{#each vaccines}}
+                                      <tr>
+                                        <td>{{vaccineDate}}</td>
+                                          <td>{{vaccine}}</td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody></table>
+                              </div>
+                              <div class="tab-pane" id="tab_3">
+
+                                {{#each gallery}}
+
+                                  <a href="{{src}}" target="_blank">
+                                    <img src={{src}} class="gallery-user-img" width="75px"/>
+                                  </a>
+
+                                {{/each}}
+
+
+                              </div>
+                              <div class="tab-pane" id="tab_4">
+
+                                <table class="table table-bordered">
+                                  <tbody><tr>
+
+                                    <th style="width:50%">ชื่อเอกสาร</th>
+                                    <th style="width:50%">link</th>
+
+                                  </tr>
+                                    {{#each files}}
+                                      <tr>
+                                        <td>{{file_name}}</td>
+                                          <td><a href="{{src}}" target="_blank">{{file_name}}</a></td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody></table>
+
+                              </div>
+                              <div class="tab-pane" id="tab_5">
+
+
+                                      <!--  </div>
+                                      </div>-->
+
+
+
+                              </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+      <!--      {{lat}}
+            {{lon}}
+
+            {{no}}{{#each}}
         {{file_id}}
 
         <img src={{src}} class="thumbnail" />
-      {{/each}}-->
-
-       <img src={{profile.src}} class="thumbnail" />
-      {{#if permission.name}}
-        {{pet.name}}
-      {{/if}}
-
-      {{#if permission.dob}}
-        {{pet.dob}}
-      {{/if}}
-
-      {{#if permission.microship}}
-        {{pet.microship}}
-      {{/if}}
-
-      {{#if permission.height}}
-        {{pet.height}}
-      {{/if}}
-
-      {{#if permission.weight}}
-        {{pet.weight}}
-      {{/if}}
-
-      {{#if permission.gender}}
-        {{pet.gender}}
-      {{/if}}
-
-
-      {{#if permission.breed}}
-        {{pet.breed}}
-      {{/if}}
-
-      {{#if permission.color}}
-        {{pet.color}}
-      {{/if}}
-
-      {{#if permission.typeId}}
-        {{pet.typeId}}
-      {{/if}}
-
-      {{#if permission.appearance}}
-        {{pet.appearance}}
-      {{/if}}
-
-      {{#if permission.desc}}
-        {{pet.desc}}
-      {{/if}}
-
-      {{#if permission.remark}}
-        {{pet.remark}}
-      {{/if}}
-
-
-
-
-      {{#each owner.profile}}
-
-        {{#if owner.permission.addr}}
-          {{address}}
-        {{/if}}
-        {{#if owner.permission.email}}
-          {{email}}
-        {{/if}}
-        {{#if owner.permission.name}}
-          {{name}}
-        {{/if}}
-        {{#if owner.permission.tel}}
-          {{tel}}
-        {{/if}}
       {{/each}}
 
-      <button id="contact"  name="contact" class="info">ติดต่อเจ้าของ</button>
+       <img src={{profile.src}} class="thumbnail" />-->
 
 
-  </div>
+
 
 </template>

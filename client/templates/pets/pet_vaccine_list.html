@@ -1,21 +1,41 @@
 <template name="petVaccineList">
-  <div class="tag page">
-    <h2>ข้อมูลวัคซีน</h2>
-    <form>
-      <input type="hidden" id="tagNo" name="tagNo" value="{{no}}" />
-      <a href="{{pathFor 'petVaccine'}}" class="discuss btn btn-info">เพิ่มข้อมูล</a>
-    {{#each vaccines}}
-      <div>
-      {{vaccineDate}}  :  {{vaccine}} :
+    <div class="box-header with-border">
+      <h3 class="box-title">ข้อมูลวัคซีน</h3>
+    </div>
 
-      <button name="edit" data-action="edit/vaccine" value="{{_id}}" class="discuss btn btn-warning"> แก้ไขข้อมูล</button>
-      <button name="delete"  data-action="delete/vaccine" value="{{_id}}"  class="discuss btn btn-danger"> ลบข้อมูล</button>
+
+    <form class="form-horizontal">
+    <div class="box-body">
+      <input type="hidden" id="tagNo" name="tagNo" value="{{no}}" />
+
+      <table class="table table-bordered">
+        <tbody><tr>
+
+          <th style="width:20%">วันที่รับวัคซีน</th>
+          <th style="width:30%">ชื่อวัคซีน</th>
+          <th style="width:50%">แก้ไข/ลบ</th>
+        </tr>
+          {{#each vaccines}}
+            <tr>
+              <td>{{vaccineDate}}</td>
+                <td>{{vaccine}}</td>
+                <td>
+                <button name="edit" data-action="edit/vaccine" value="{{_id}}" class="discuss btn btn-warning"> แก้ไขข้อมูล</button>
+                <button name="delete"  data-action="delete/vaccine" value="{{_id}}"  class="discuss btn btn-danger"> ลบข้อมูล</button>
+                </td>
+              </tr>
+          {{/each}}
+      </tbody></table>
+
+      <div class="box-footer col-sm-offset-2">
+        <a href="{{pathFor 'petVaccine'}}" class="discuss btn btn-info">เพิ่มข้อมูล</a>
+        <a href="{{pathFor 'tagsList'}}" class="btn btn-default">รายการสัตว์เลี้ยง</a>
+      </div>
+
 
       </div>
-    {{/each}}
-
-
-    <a href="{{pathFor 'tagsList'}}" class="btn btn-default">กลับหน้าหลัก</a>
   </form>
-  </div>
+
+
+
 </template>

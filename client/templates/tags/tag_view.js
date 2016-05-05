@@ -11,7 +11,6 @@ Meteor.startup(function() {
 });
 
 Template.viewTag.onCreated(function() {
-
  Session.set('tagno',this.data.no);
  Session.set('ownerId',this.data.ownerId);
 });
@@ -25,11 +24,36 @@ Template.viewTag.helpers({
   },
 
   owner:function(){
+    var r = Meteor.users.findOne({_id:Session.get('ownerId')},{profile:1,promission:1});
+    console.log(r);
 
-    return Meteor.users.findOne({_id:Session.get('ownerId')},{profile:1});
+    return r;
   },
 
   isLost:function(){
+    var res = Tags.findOne({no:Session.get('tagno')},{status:1});
+    if(res.status==='lost'){
+      return true;
+    }else{
+      return false;
+    }
+
+  },
+  isShowEmail:function(){
+    var res = Meteor.users.findOne({_id:Session.get('ownerId')},{promission:1});
+    return res.permission.email;
+  },
+  isShowTel:function(){
+    var res = Meteor.users.findOne({_id:Session.get('ownerId')},{promission:1});
+    return res.permission.tel;
+  },
+  isShowName:function(){
+    var res = Meteor.users.findOne({_id:Session.get('ownerId')},{promission:1});
+    return res.permission.name;
+  },
+  isShowAddr:function(){
+    var res = Meteor.users.findOne({_id:Session.get('ownerId')},{promission:1});
+    return res.permission.addr;
 
   }
 
@@ -54,7 +78,7 @@ Template.viewTag.events({
       lat:Session.get('lat'),
       long:Session.get('lon')
     };
-    console.log(location);
+    //console.log(location);
 
     Meteor.call('tagSaveLoacation',tagNo,location, function(error, result) {
       // display the error to the user and abort

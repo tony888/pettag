@@ -1,8 +1,41 @@
 Template.userEditPermission.onCreated(function() {
-
+  console.log(this);
+  Session.set("chkName",this.data.permission.name);
+  Session.set("chkTel",this.data.permission.tel);
+  Session.set("chkAddr",this.data.permission.addr);
+  Session.set("chkEmail",this.data.permission.email);
 
 });
 
+
+Template.userEditPermission.helpers({
+
+  isChkAll:function(){
+     return Session.equals("chkName",true) && Session.equals("chkTel",true)&& Session.equals("chkAddr",true)
+     && Session.equals("chkEmail",true)?'checked':'';
+  },
+  isCheckName:function(){
+
+    return Session.equals("chkName",true)?'checked':'';
+
+  },
+  isCheckTel:function(){
+
+    return Session.equals("chkTel",true)?'checked':'';
+
+  },
+  isCheckAddr:function(){
+
+    return Session.equals("chkAddr",true)?'checked':'';
+
+  },
+  isCheckEimail:function(){
+
+    return Session.equals("chkEmail",true)?'checked':'';
+
+  }
+
+});
 
 
 Template.userEditPermission.events({

@@ -1,6 +1,6 @@
 Template.petSubmit.onCreated(function() {
   Session.set('petSubmitErrors', {});
-  
+  console.log(this);
 });
 
 Template.petSubmit.rendered=function() {
@@ -20,6 +20,9 @@ Template.petSubmit.helpers({
   },
   getSelect:function(filed){
     return  Masters.find({"name":"master"},{filed:1});
+  },
+  showTagNumber:function(){
+
   }
 });
 
@@ -66,9 +69,8 @@ Template.petSubmit.events({
 
     var errors = validateTag(tag);
     //  console.log(errors);
-    if( errors.typeId || errors.name ||  errors.age ||
-      errors.height|| errors.weight || errors.gender ||
-      errors.breed ||  errors.color )
+    //errors.height|| errors.weight || errors.gender ||errors.breed ||  errors.color
+    if( errors.typeId || errors.name ||  errors.age )
 
       return Session.set('petSubmitErrors',errors);
 

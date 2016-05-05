@@ -1,9 +1,20 @@
 <template name="layout">
-  <div class="container">
-    {{>header}}
-    {{>errors}}
-    <div id="main">
-      {{> yield}}
-    </div>
-  </div>
+  {{#AdminLTE skin="blue"}}
+
+      {{>header}}
+      {{>aside}}
+        <div class="content-wrapper">
+          <section class="content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                      {{> yield}}
+                    </div>
+                  </div>
+                </div >
+               </section>
+        </div>
+      {{>footer}}
+
+  {{/AdminLTE}}
 </template>

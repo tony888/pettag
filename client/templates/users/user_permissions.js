@@ -1,5 +1,5 @@
 Template.userPermission.onCreated(function() {
-  console.log(Meteor.userId());
+  //console.log(Meteor.userId());
 
 });
 

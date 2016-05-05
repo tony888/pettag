@@ -1,24 +1,42 @@
 <template name="tagVelifys">
-  <form class="main form page">
 
-    <div class="form-group {{errorClass 'tagNo'}}">
-      <label class="control-label" for="tagNo">หมายเลข Tag</label>
-      <div class="controls">
-          <input name="tagNo" id="tagNo" type="text" value="" placeholder="ระบุหมายเลข Tag" class="form-control"/>
-          <span class="help-block">{{errorMessage 'tagNo'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'serial'}}">
-      <label class="control-label" for="serial">Serial number</label>
-      <div class="controls">
-          <input name="serial" id="serial" type="text" value="" placeholder="ระบุSerial number" class="form-control"/>
-          <span class="help-block">{{errorMessage 'serial'}}</span>
-      </div>
-    </div>
+              <div class="box-header with-border">
+                <h3 class="box-title">Active Tag</h3>
+              </div>
 
 
+                <form class="form-horizontal">
+                  <div class="box-body">
+                        <div class="form-group {{errorClass 'tagNo'}}">
+                          <label class="col-sm-2 control-label" for="tagNo">หมายเลข Tag</label>
+                          <div class="col-sm-6">
+                            {{#if showTagNumber}}
+                              <input name="tagNo" id="tagNo" type="text" value="{{showTagNumber}}" placeholder="ระบุหมายเลข Tag" class="form-control"/>
+                            {{else}}
+                              <input name="tagNo" id="tagNo" type="text" value="" placeholder="ระบุหมายเลข Tag" class="form-control"/>
 
-    <input type="submit" value="Submit" class="btn btn-primary"/>
-  </form>
+                            {{/if}}
+                              <span class="help-block">{{errorMessage 'tagNo'}}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group {{errorClass 'serial'}}">
+                          <label class="col-sm-2 control-label" for="serial">Serial number</label>
+                          <div class="col-sm-6">
+                              <input name="serial" id="serial" type="text" value="" placeholder="ระบุSerial number" class="form-control"/>
+                              <span class="help-block">{{errorMessage 'serial'}}</span>
+                          </div>
+                        </div>
+
+
+
+                        <div class="box-footer col-sm-offset-2 col-sm-6">
+                          <input type="submit" value="active tag" class="btn btn-primary"/>
+                        </div>
+
+                  </div>
+                  </form>
+
+
+
 </template>

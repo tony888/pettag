@@ -1,16 +1,66 @@
 <template name="tagsList">
-  <div class="tag page">
-    {{#each tags}}
-      {{>tagItem}}
-    {{/each}}
 
-    {{#if nextPath}}
-      <a class="load-more" href="{{nextPath}}">Load more</a>
-    {{else}}
-      {{#unless ready}}
-        {{>spinner}}
-      {{/unless}}
-    {{/if}}
-  
-  </div>
+        {{#unless Template.subscriptionsReady}}
+          {{>spinner}}
+        {{/unless}}
+        <section class="content-header">
+          <h1>รายการสัตว์เลี้ยง</h1>
+          <!--<small>แสดงรายการสัตว์เลี้ยงทั้งหมด</small>-->
+        <ol class="breadcrumb">
+          <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>-->
+          <li class="active"><a href="#">Taglist</a></li>
+        </ol>
+        </section>
+          <section class="content">
+            <div class="box">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body">
+
+
+           <!--<table class="table table-bordered table-striped table-hover">
+            <tbody>
+              <tr>
+                <th style="width: 10px">#</th>
+                <th colspan="2">รายละเอียด</th>-->
+                <!--<th>สถานะ</th>-->
+              <!--  <th>การจัดการ</th>
+              </tr>-->
+                  {{#each tags}}
+                    {{>tagItem}}
+                  {{/each}}
+                </div>
+                <div class="box-footer">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li class="{{prevPageClass}}"><a id="prevPage" href="{{prevPage}}">ย้อนกลับ</a></li>
+                    <li class="{{nextPageClass}}"><a id="nextPage" href="{{nextPage}}">ถัดไป</a></li>
+
+                  </ul>
+                </div>
+          <!--  </tbody>
+          </table>-->
+
+          </div>
+        </section>
+
+
+
+        <!--        <div class="box-footer clear-fix">
+          <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
+        </div>-->
+        <!--
+      {{#if nextPath}}
+        <a class="load-more" href="{{nextPath}}">Load more</a>
+      {{else}}
+        {{#unless ready}}
+          {{>spinner}}
+        {{/unless}}
+      {{/if}}-->
+
 </template>

@@ -8,8 +8,8 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }
 
 body {
-  background: #eee;
-  color: #666666; }
+
+}
 
 #main {
   position: relative;
@@ -173,4 +173,47 @@ body {
 
 .has-switch span, .has-switch label {
   font-size: 10px !important;
+}
+
+
+.profile-user-img {
+    margin: 0 auto;
+    width: 100px;
+    padding: 3px;
+    border: 3px solid #d2d6de;
+  }
+
+  .gallery-user-img {
+      margin: 0 auto;
+      width: 75px;
+      height: :75px !important;
+      padding: 3px;
+      border: 3px solid #d2d6de;
+      float: left;
+    }
+
+
+.user-block img {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.img-bordered-sm {
+    border: 2px solid #d2d6de;
+    padding: 2px;
+}
+.thumb{
+    margin-bottom: 30px;
+
+}
+#login-page, #register-page {
+    background: #d2d6de !important;
+    min-height: 700px;
+}
+section .content{
+  min-height: 700px !important;
+}
+
+#loginPage .row{
+  min-height: 400px;
 }

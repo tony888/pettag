@@ -1,15 +1,28 @@
 <template name="tagTransfer">
+  <div class="box-header with-border">
+    <h3 class="box-title">โอนสัตว์เลี้ยง </h3>
+  </div>
+  <form class="form-horizontal">
+    <div class="box-body">
 
-      <form class="main form page">
         <input name="tagNo" id="tagNo" type="hidden" value="{{no}}" />
         <div class="form-group {{errorClass 'email'}}">
-          <label class="control-label" for="email">email ผู้รับโอน</label>
-          <div class="controls">
+          <label class="col-sm-2 control-label" for="email">email ผู้รับโอน</label>
+          <div class="col-sm-6">
               <input name="email" id="email" type="text" value="" placeholder="ระบุ email ผู้รับโอน" class="form-control"/>
               <span class="help-block">{{errorMessage 'email'}}</span>
           </div>
         </div>
 
-        <input type="submit" value="Submit" class="btn btn-primary"/>
-    </form>
+
+
+
+
+    <div class="box-footer col-sm-offset-2 col-sm-6">
+
+      <input type="submit" value="โอนสัตว์เลี้ยง" class="btn btn-primary"/>
+       <a href="{{pathFor 'tagsList'}}" class="btn btn-default">ยกเลิก</a>
+    </div>
+  </div>
+  </form>
 </template>

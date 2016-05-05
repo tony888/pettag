@@ -1,6 +1,6 @@
-<template name="userRegister">
+<template name="userRegisterAfterValidate">
   <form >
-  <div class="box-body">
+    <div class="box-body">
   <!-- Text input-->
 
   <div class="input-group {{errorClass 'emails'}}">
@@ -37,13 +37,11 @@
 
 
       <div class="input-group {{errorClass 'tel'}}">
-        <p class="text-red"></p>
         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-
           <input id="tel" name="tel" type="tel" placeholder="เบอร์โทรศัพท์" class="form-control" required="">
 
         </div>
-        <p style="color:red" >&nbsp;&nbsp;&nbsp;ข้อมูลถูกเก็บเป็นความลับจะแสดงเมื่อสัตว์เลี้ยงหาย</p>
+          <p style="color:red">&nbsp;&nbsp;&nbsp;ข้อมูลถูกเก็บเป็นความลับจะแสดงเมื่อสัตว์เลี้ยงหาย</p>
         <span class="help-block">{{errorMessage 'tel'}}</span>
 
 
@@ -55,8 +53,6 @@
 
           <textarea class="form-control" id="address" name="address" placeholder="ที่อยู่"></textarea>
           </div>
-
-
           <span class="help-block">{{errorMessage 'address'}}</span>
 
 
@@ -69,7 +65,6 @@
               <!--  <button id="regis" name="regis" class="btn btn-success">สมัครสมาชิก</button>-->
               </div>
           </div>
-
 
         </div>
   </form>

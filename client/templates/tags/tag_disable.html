@@ -1,16 +1,28 @@
 <template name="tagDisable">
-  <form class="main form page">
-    <div class="form-group ">
-      <div class="col-sm-2">
-          <label class="control-label" for="remark">ยกเลิก Tag :</label>
-      </div>
+  <div class="box-header with-border">
+    <h3 class="box-title">ยกเลิกการใช้ Tag </h3>
+  </div>
+
+
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group ">
+
+        <label class="col-sm-2 control-label"  for="remark">ยกเลิก Tag :</label>
+          <div class="col-sm-10">
+            <input id="chk_disable" name="chk_disable" type="checkbox" >
+          </div>
       <!--<div class="switch controls" id="toggle_remark"  data-on-label="SHOW" data-off-label="OFF">-->
-          <input id="chk_disable" name="chk_disable" type="checkbox" >
+
       <!--  </div>-->
 
     </div>
+    <div class="box-footer col-sm-offset-2 col-sm-10">
+      <input type="submit" value="ยกเลิก Tag" class="btn btn-primary" disabled />
+       <a href="{{pathFor 'tagsList'}}" class="btn btn-default">กลับหน้าหลัก</a>
+    </div>
 
+  </div>
 
-    <input type="submit" value="Submit" class="btn btn-primary" disabled />
   </form>
 </template>

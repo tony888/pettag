@@ -1,10 +1,16 @@
-Meteor.publish('tags', function(options) {
-  check(options, {
-    sort: Object,
-    limit: Number
+Meteor.publish('tags', function(skipItem) {
+  var positveIntegerCheck = Match.Where(function(x) {
+    check(x, Match.Integer);
+    return x >= 0;
   });
+  check(skipItem, positveIntegerCheck);
+  var limitNumber = parseInt(Meteor.settings.public.recordsPerPage);
 
-  return Tags.find({}, options);
+  Counts.publish(this, 'TagCount', Tags.find(), {
+   noReady: true
+ });
+
+  return Tags.find({ownerId: this.userId,status:{$nin:['disable']}},{limit:limitNumber,skip:skipItem,sort:{no:-1}});
 //  return Tags.find({ownerId: this.userId}, options);
 
 });
@@ -33,8 +39,8 @@ Meteor.publish('viewTag', function() {
 });
 
 Meteor.publish('tagVelify', function() {
-
-  return  Tags.find({status:"inactive",ownerId:{$exists:false}});
+  //Tags.find({status:"inactive",ownerId:{$exists:false}});
+  return  Tags.find({status:"inactive"});
 
 });
 

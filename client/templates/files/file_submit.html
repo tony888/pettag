@@ -1,15 +1,22 @@
 <template name="fileSubmit">
+     <div class="input-group  col-xs-6">
 
-  <div class="row">
-      <div class="col-md-12">
-          <input type="text" value="" name="txtFileName" id="txtFileName" placeholder="กรอกชื่อเอกสาร" >
-          <input type="file" id ="fileupload" name = "fileupload">
-          <button type="button"  name="btnUpload" id="btnUpload">Upload file</button>
+            <input type="file" id ="fileupload" name = "fileupload">
+            <br/>
+      </div>
+      <div class="input-group  col-xs-6">
+
+            <input type="text" value="" name="txtFileName" id="txtFileName" placeholder="กรอกชื่อเอกสาร" class="form-control" >
+            <span class="input-group-btn">
+            <button type="button"  name="btnUpload" id="btnUpload" class="btn btn-info btn-flat">Upload</button>
+          </span>
 
       </div>
-    </div>
-
-  {{#each files}}
-    {{> filesList}}
-  {{/each}}
+      <div class="col-md-12">
+          <div class="row">
+            {{#each files}}
+              {{> filesList}}
+            {{/each}}
+          </div>
+        </div>
 </template>

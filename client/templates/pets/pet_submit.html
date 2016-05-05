@@ -1,177 +1,199 @@
 <template name="petSubmit">
-  <form class="main form page">
 
-  <input name="tagNo" id="tagNo" type="hidden" value="{{no}}" />
+            <div class="box-header with-border">
+                <h3 class="box-title">เพิ่มสัตว์เลี้ยง</h3>
+              </div>
+                          <form class="form-horizontal">
+                          <div class="box-body">
+                           <input name="tagNo" id="tagNo" type="hidden" value="{{no}}" />
 
+                           <div class="form-group">
+                             <label class="col-sm-2 control-label" for="name">Tag no </label>
+                           <div class="col-sm-6">
+                                 <span>{{no}}</span>
 
-    <div class="form-group {{errorClass 'typeId'}}">
-      <label class="control-label" for="typeId">ประเภทสัตว์</label>
-      <div class="controls">
+                             </div>
+                           </div>
 
-        <select name="typeId" id="typeId" class="form-control">
-          <option value="" selected="selected">ระบุประเภทสัตว์</option>
+                            <div class="form-group {{errorClass 'typeId'}}">
+                              <label class="col-sm-2 control-label" for="typeId">ประเภทสัตว์</label>
+                            <div class="col-sm-6">
 
-
-
-          {{#each getSelect 'types'}}
-
-            {{#each types}}
-              <option value="{{name}}">{{name}}</option>
-
-            {{/each}}
-          {{/each}}
-
-        </select>
-        <span class="help-block">{{errorMessage 'typeId'}}</span>
-      </div>
-    </div>
-
-
-    <div class="form-group {{errorClass 'name'}}">
-      <label class="control-label" for="name">ชื่อสัตว์</label>
-      <div class="controls">
-          <input name="name" id="name" type="text" value="" placeholder="ระบุชื่อสัตว์" class="form-control"/>
-          <span class="help-block">{{errorMessage 'name'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'microship'}}">
-      <label class="control-label" for="name">Microship Id </label>
-      <div class="controls">
-          <input name="microship" id="microship" type="text" value="" placeholder="ระบุMicroship Id " class="form-control"/>
-          <span class="help-block">{{errorMessage 'microship'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'dob'}}">
-      <label class="control-label" for="dob">วันเกิด</label>
-      <div class="controls">
-          <input name="dob" id="dob" type="text" value="" placeholder="ระบุวันเกิด dd-mm-yyyy" class="form-control"/>
-          <span class="help-block">{{errorMessage 'dob'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'age'}}">
-      <label class="control-label" for="age">อายุ</label>
-      <div class="controls">
-          <input name="age" id="age" type="text" value="" placeholder="ระบุอายุ" class="form-control"/>
-          <span class="help-block">{{errorMessage 'age'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'gender'}}">
-      <label class="control-label" for="gender">เพศ</label>
-      <div class="controls">
-        <select name="gender" id="gender" class="form-control">
-          <option value="" selected="selected">ระบุเลือกเพศ</option>
-            {{#each getSelect 'genders'}}
-
-              {{#each genders}}
-                <option value="{{value}}">{{name}}</option>
-
-              {{/each}}
-            {{/each}}
-
-          </select>
-
-          <span class="help-block">{{errorMessage 'gender'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'breed'}}">
-      <label class="control-label" for="breed">สายพันธุ์</label>
-      <div class="controls">
-          <input name="breed" id="breed" type="text" value="" placeholder="ระบุสายพันธุ์" class="form-control"/>
-          <span class="help-block">{{errorMessage 'breed'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'color'}}">
-      <label class="control-label" for="height">สี </label>
-      <div class="controls">
-        <input name="color" id="color" type="text" value="" placeholder="ระบุสี" class="form-control"/>
-
-        <span class="help-block">{{errorMessage 'color'}}</span>
-      </div>
-    </div>
-
-    <div class="form-group {{errorClass 'weight'}}">
-      <label class="control-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
-      <div class="controls">
-        <input name="weight" id="weight" type="text" value="" placeholder="ระบุน้ำหนัก" class="form-control"/>
-
-        <span class="help-block">{{errorMessage 'weight'}}</span>
-      </div>
-    </div>
-
-
-    <div class="form-group {{errorClass 'height'}}">
-      <label class="control-label" for="height">ความสูง (เซ็นติเมตร)</label>
-      <div class="controls">
-        <input name="height" id="height" type="text" value="" placeholder="ระบุส่วนสูง" class="form-control"/>
-
-        <span class="help-block">{{errorMessage 'height'}}</span>
-      </div>
-    </div>
+                                <select name="typeId" id="typeId" class="form-control">
+                                  <option value="" selected="selected">ระบุประเภทสัตว์</option>
 
 
 
+                                  {{#each getSelect 'types'}}
 
-    <div class="form-group">
-      <label class="control-label" for="appearance">ตำหนิ</label>
-      <div class="controls">
-          <textarea rows="3" name="appearance" id="appearance" class="form-control">
-          </textarea>
+                                    {{#each types}}
+                                      <option value="{{name}}">{{name}}</option>
 
-      </div>
-    </div>
+                                    {{/each}}
+                                  {{/each}}
 
-    <div class="form-group">
-      <label class="control-label" for="desc">รายละเอียด</label>
-      <div class="controls">
-          <textarea rows="3" name="desc" id="desc" class="form-control">
-          </textarea>
+                                </select>
+                                <span class="help-block">{{errorMessage 'typeId'}}</span>
+                              </div>
+                            </div>
 
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label class="control-label" for="remark">หมายเหตุ</label>
-      <div class="controls">
-          <textarea rows="3" name="remark" id="remark" class="form-control">
-          </textarea>
-
-      </div>
-    </div>
+                            <div class="form-group {{errorClass 'name'}}">
+                              <label class="col-sm-2 control-label" for="name">ชื่อสัตว์</label>
+                            <div class="col-sm-6">
+                                  <input name="name" id="name" type="text" value="" placeholder="ระบุชื่อสัตว์" class="form-control"/>
+                                  <span class="help-block">{{errorMessage 'name'}}</span>
+                              </div>
+                            </div>
 
 
 
-    <div class="form-group">
-      <label class="control-label" for="profile">ภาพ Profile </label>
-      <div class="controls">
-        {{>profileImageSubmit}}
+                            <div class="form-group {{errorClass 'dob'}}">
+                              <label class="col-sm-2 control-label" for="dob">วันเกิด</label>
+                            <div class="col-sm-6">
+                                  <input name="dob" id="dob" type="text" value="" placeholder="ระบุวันเกิด dd-mm-yyyy" class="form-control"/>
+                                  <span class="help-block">{{errorMessage 'dob'}}</span>
+                              </div>
+                            </div>
 
-      </div>
-    </div>
+                            <div class="form-group {{errorClass 'age'}}">
+                              <label class="col-sm-2 control-label" for="age">อายุ</label>
+                            <div class="col-sm-6">
+                                  <input name="age" id="age" type="text" value="" placeholder="ระบุอายุ" class="form-control"/>
+                                  <span class="help-block">{{errorMessage 'age'}}</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group {{errorClass 'gender'}}">
+                              <label class="col-sm-2 control-label" for="gender">เพศ</label>
+                            <div class="col-sm-6">
+                                <select name="gender" id="gender" class="form-control">
+                                  <option value="" selected="selected">ระบุเลือกเพศ</option>
+                                    {{#each getSelect 'genders'}}
+
+                                      {{#each genders}}
+                                        <option value="{{value}}">{{name}}</option>
+
+                                      {{/each}}
+                                    {{/each}}
+
+                                  </select>
+
+                                  <span class="help-block">{{errorMessage 'gender'}}</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group {{errorClass 'breed'}}">
+                              <label class="col-sm-2 control-label" for="breed">สายพันธุ์</label>
+                            <div class="col-sm-6">
+                                  <input name="breed" id="breed" type="text" value="" placeholder="ระบุสายพันธุ์" class="form-control"/>
+                                  <span class="help-block">{{errorMessage 'breed'}}</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group {{errorClass 'color'}}">
+                              <label class="col-sm-2 control-label" for="height">สี </label>
+                            <div class="col-sm-6">
+                                <input name="color" id="color" type="text" value="" placeholder="ระบุสี" class="form-control"/>
+
+                                <span class="help-block">{{errorMessage 'color'}}</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group {{errorClass 'microship'}}">
+                              <label class="col-sm-2 control-label" for="name">Microship Id </label>
+                            <div class="col-sm-6">
+                                  <input name="microship" id="microship" type="text" value="" placeholder="ระบุMicroship Id " class="form-control"/>
+                                  <span class="help-block">{{errorMessage 'microship'}}</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group {{errorClass 'weight'}}">
+                              <label class="col-sm-2 control-label" for="weight">น้ำหนัก (กิโลกรัม)</label>
+                            <div class="col-sm-6">
+                                <input name="weight" id="weight" type="text" value="" placeholder="ระบุน้ำหนัก" class="form-control"/>
+
+                                <span class="help-block">{{errorMessage 'weight'}}</span>
+                              </div>
+                            </div>
 
 
-    <div class="form-group">
-      <label class="control-label" for="Gallery">ภาพ Gallery</label>
-      <div class="controls">
-        {{>gallerySubmit}}
-      </div>
+                            <div class="form-group {{errorClass 'height'}}">
+                              <label class="col-sm-2 control-label" for="height">ความสูง (เซ็นติเมตร)</label>
+                            <div class="col-sm-6">
+                                <input name="height" id="height" type="text" value="" placeholder="ระบุส่วนสูง" class="form-control"/>
 
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="file">เอกสารอื่นๆ</label>
-      <div class="controls">
-          {{>fileSubmit}}
-
-      </div>
-    </div>
+                                <span class="help-block">{{errorMessage 'height'}}</span>
+                              </div>
+                            </div>
 
 
 
-    <input type="submit" value="Submit" class="btn btn-primary"/>
-  </form>
+
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="appearance">ตำหนิ</label>
+                            <div class="col-sm-6">
+                                  <textarea rows="3" name="appearance" id="appearance" class="form-control">
+                                  </textarea>
+
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="desc">รายละเอียด</label>
+                            <div class="col-sm-6">
+                                  <textarea rows="3" name="desc" id="desc" class="form-control">
+                                  </textarea>
+
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="remark">หมายเหตุ</label>
+                            <div class="col-sm-6">
+                                  <textarea rows="3" name="remark" id="remark" class="form-control">
+                                  </textarea>
+
+                              </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="profile">ภาพ Profile </label>
+                            <div class="col-sm-6">
+                                {{>profileImageSubmit}}
+
+                              </div>
+                            </div>
+
+
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="Gallery">ภาพ Gallery</label>
+                            <div class="col-sm-6">
+                                {{>gallerySubmit}}
+                              </div>
+
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label" for="file">เอกสารอื่นๆ</label>
+                            <div class="col-sm-6">
+                                  {{>fileSubmit}}
+
+                              </div>
+                            </div>
+
+
+                            <div class="box-footer col-sm-offset-2 col-sm-6">
+
+                              <input type="submit" value="บันทึกข้อมูล" class="btn btn-primary"/>
+                            </div>
+                          </div>
+                      </form>
+
+
+
+
+
+
 </template>

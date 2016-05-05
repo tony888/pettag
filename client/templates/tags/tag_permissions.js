@@ -27,7 +27,10 @@ Template.tagPermission.events({
      $("input[name=tagPermis]").prop("checked",false);
    }
  },
-
+'click #btn-skip' :function(event,template){
+  var tagNo = $.trim(template.$("#tagNo").val());
+  Router.go('petVaccineList',{no:tagNo});
+},
  'submit form':function(event, template){
    event.preventDefault();
    /*

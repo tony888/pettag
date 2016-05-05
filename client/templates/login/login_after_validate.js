@@ -1,10 +1,11 @@
-Template.login.onCreated(function() {
+Template.loginAfterVelidate.onCreated(function() {
   Session.set('userSubmitErrors', {});
-
+  Session.set('tagno', this.data.no);
+  //console.log(this);
 });
 
 
-Template.login.helpers({
+Template.loginAfterVelidate.helpers({
   errorMessage: function(field) {
     return Session.get('userSubmitErrors')[field];
   },
@@ -16,8 +17,8 @@ Template.login.helpers({
 });
 
 
-Template.login.events({
-  "click #login": function(event, template){
+Template.loginAfterVelidate.events({
+  "submit form": function(event, template){
       event.preventDefault();
       //Session.set('userSubmitErrors', {});
 
@@ -38,8 +39,15 @@ Template.login.events({
           console.log(Meteor.userId());
           */
         if(Meteor.userId()){
-          toastr.success('Login success');
-          Router.go('tagsList');
+          if(Session.get('tagno')){
+            //console.log(Session.get('tagno'));
+            toastr.success('Login success');
+            Router.go('petSubmit',{no:Session.get('tagno')});
+          }else{
+            Router.go('tagsList');
+          }
+
+
         }else{
             toastr.error.reason;
         }
